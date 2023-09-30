@@ -1,3 +1,4 @@
 # CI-CD_Project
 This is small CI/CD project.
-![Untitled 1_page-0001](https://github.com/ismail-cs/Continuous_integration-Project/assets/62925102/cb10c4e6-e550-4a91-9407-a4f0ee6f2876)
+![Untitled 2_page-0001](https://github.com/ismail-cs/Continuous_integration-Project/assets/62925102/1dfbdb2a-adc8-4887-96cf-1fbb9d0c6a0f)
+
