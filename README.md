@@ -21,12 +21,15 @@ This is a small CI project.
    - UBUNTU 22.04
 - Instance Types
    - t2.medium
-- Inbound  
+- Inbound rules
 
-| Source | Protocol	 |  Port range	| Description |
-________   _________   ____________   __________
-|Public IPv4 |	TCP  |  22  | Allows inbound SSH access from IPv4 IP addresses in your network   |
---------       ------- -----     ------------
+| Source | Protocol | Port range | Description |
+| -----  | -------- | ---------- | ----------- |
+| Public IPv4 | TCP |    22      | Allows inbound SSH access from IPv4 IP addresses in your network |
+| 0.0.0.0/0   | TCP |    8080    | Allows jenkins access  from all IPv4 addresses |
+| 0.0.0.0/0   | TCP |    80      | Allows inbound HTTP access from all IPv4 addresses |  
+
+
 
 #### user data
 ```
@@ -55,7 +58,14 @@ sudo apt-get update
 - AMI
    - CENTOS 7
 - Instance Types
-   - t2.small	
+   - t2.small
+- Inbound rules
+
+| Source | Protocol | Port range | Description |
+| -----  | -------- | ---------- | ----------- |
+| Public IPv4 | TCP |    22      | Allows inbound SSH access from IPv4 IP addresses in your network |
+| 0.0.0.0/0   | TCP |    8081    | Allows Nexus server access from all IPv4 addresses | 
+
 
 #### user data
 ```
@@ -103,7 +113,15 @@ systemctl enable nexus
 - AMI
    - UBUNTU 22.04
 - Instance Types
-   - t2.small	
+   - t2.small
+- Inbound rules
+
+| Source | Protocol | Port range | Description |
+| -----  | -------- | ---------- | ----------- |
+| Public IPv4 | TCP |    22      | Allows inbound SSH access from IPv4 IP addresses in your network |
+| 0.0.0.0/0   | TCP |    80      | Allows inbound HTTP access from all IPv4 addresses |
+| 0.0.0.0/0   | TCP |    9000    | Allows inbound Sonar server access from all IPv4 addresses |  
+
 
 #### user data
 ```
