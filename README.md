@@ -20,7 +20,13 @@ This is a small CI project.
 - AMI
    - UBUNTU 22.04
 - Instance Types
-   - t2.medium	
+   - t2.medium
+- Inbound  
+
+| Source | Protocol	 |  Port range	| Description |
+________   _________   ____________   __________
+|Public IPv4 |	TCP  |  22  | Allows inbound SSH access from IPv4 IP addresses in your network   |
+--------       ------- -----     ------------
 
 #### user data
 ```
