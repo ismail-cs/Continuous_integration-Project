@@ -17,6 +17,11 @@ This is a small CI project.
 
 ### Jenkins Server setup
 
+- AMI
+   - UBUNTU 22.04
+- Instance Types
+   - t2.medium	
+
 #### user data
 ```
 #!/bin/bash
@@ -40,6 +45,11 @@ sudo apt-get update
 ```
 
 ### Nexus Server setup
+
+- AMI
+   - CENTOS 7
+- Instance Types
+   - t2.small	
 
 #### user data
 ```
@@ -83,6 +93,11 @@ systemctl start nexus
 systemctl enable nexus
 ```
 ### Sonarqube Sever setup
+
+- AMI
+   - UBUNTU 22.04
+- Instance Types
+   - t2.small	
 
 #### user data
 ```
