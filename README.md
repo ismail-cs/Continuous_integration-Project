@@ -202,7 +202,7 @@ reboot
 
 
 ```
-systemctl status sonaeqube
+systemctl status sonarqube
 ```
 
 ---
