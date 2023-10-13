@@ -210,7 +210,7 @@ systemctl status sonarqube
 - AMI
    - CENTOS 7
 - Instance Types
-   - t2.small
+   - t2.medium	
 - Inbound rules
 
 | Source | Protocol | Port range | Description |
