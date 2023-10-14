@@ -2,16 +2,15 @@
 	'SUCCESS': 'good',
 	'FAILURE': 'danger',
  ]
-
  
- pipeline {
+pipeline {
     agent any
 
     stages{
     
         stage('Fetch code') {
           steps{
-              git branch: 'vp-rem', url:'https://github.com/ismail-cs/CI-CD_Project.git'
+              git branch: 'main', url:'https://github.com/ismail-cs/Continuous_integration-Project.git'
           }  
         }
 
@@ -45,8 +44,8 @@
             }
             steps {
                withSonarQubeEnv('sonar') {
-                   sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile_test \
-                   -Dsonar.projectName=vprofile_test \
+                   sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=Project_Alpha \
+                   -Dsonar.projectName=Project_Alpha \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/ \
                    -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
@@ -56,7 +55,7 @@
               }
             }
         }
-
+        
         stage("Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
@@ -67,39 +66,37 @@
             }
         }
         
+        
+        
         stage("Upload Artifact") {
         	steps {
         		
         		nexusArtifactUploader(
 				nexusVersion: 'nexus3',
 				protocol: 'http',
-				nexusUrl: '172.31.52.210:8081',
+				nexusUrl: '172.31.61.246:8081',
 				groupId: 'QA',
 				version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-				repository: 'vprofile_ci_2',
+				repository: 'Project_Alpha',
 				credentialsId: 'nexuslogin',
 					artifacts: [
-						[artifactId: 'vproapp',
+						[artifactId: 'application',
 						 classifier: '',
-						 file: 'target/vprofile-v2.war',
+						 file: 'target/project_alpha-v2.war',
 						 type: 'war']
 					]
 			 	)	
         	}
         }
-
-
-
+        
     }
     
     post {
 		always {
 			echo 'Slack Notification.'
-			slackSend channel: 'team_a',
+			slackSend channel: 'team-a',
 				color: COLOR_MAP[currentBuild.currentResult],
 				message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
 		}
 	}
 }
-
-
