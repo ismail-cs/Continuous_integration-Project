@@ -2,6 +2,17 @@ Continuous_integration Project
 This is a small CI project.
 ![Untitled 2_page-0001](https://github.com/ismail-cs/Continuous_integration-Project/assets/62925102/1dfbdb2a-adc8-4887-96cf-1fbb9d0c6a0f)  
 
+
+---
+
+
+https://github.com/ismail-cs/Continuous_integration-Project/assets/62925102/c1efb5bc-3311-4f66-949a-8181708b8af0
+
+---
+
+
+
+
 ### Steps
 - Jenkins Server setup
 - Nexus Server setup
